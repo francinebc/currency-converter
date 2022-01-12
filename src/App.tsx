@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Box} from '@mui/material';
+import ConverterFrame from './components/ConverterFrame';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FC = () => {
+    return (
+        <Box sx={{
+            backgroundImage: 'url("https://paytron.com.au/static/media/Background.7482072b.png")',
+            backgroundSize: 'cover',
+            resize: 'both',
+            height: '100vh'
+        }}>
+            <Box sx={{
+                margin: 'theme.spacing(8)'
+            }}>
+                <ConverterFrame/>
+            </Box>
+        </Box>
+    );
 }
 
 export default App;
