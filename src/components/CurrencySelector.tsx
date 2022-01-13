@@ -65,44 +65,14 @@ const countries: CountryCurrency[] = [
         name: 'Australian Dollar'
     },
     {
-        countryCode: 'BG',
-        currencyCode: 'BGN',
-        name: 'Bulgarian Lev'
-    },
-    {
-        countryCode: 'BH',
-        currencyCode: 'BHD',
-        name: 'Bahraini Dinar'
-    },
-    {
         countryCode: 'CA',
         currencyCode: 'CAD',
         name: 'Canadian Dollar'
     },
     {
-        countryCode: 'CH',
-        currencyCode: 'CHF',
-        name: 'Swiss Franc'
-    },
-    {
         countryCode: 'CN',
         currencyCode: 'CNY',
         name: 'Chinese Yuan'
-    },
-    {
-        countryCode: 'CZ',
-        currencyCode: 'CZK',
-        name: 'Czech Koruna'
-    },
-    {
-        countryCode: 'DK',
-        currencyCode: 'DKK',
-        name: 'Danish Krone'
-    },
-    {
-        countryCode: 'EUR',
-        currencyCode: 'pan',
-        name: 'Euro'
     },
     {
         countryCode: 'GB',
@@ -120,21 +90,6 @@ const countries: CountryCurrency[] = [
         name: 'Croatian Kuna'
     },
     {
-        countryCode: 'HU',
-        currencyCode: 'HUF',
-        name: 'Hungarian Forint'
-    },
-    {
-        countryCode: 'ID',
-        currencyCode: 'IDR',
-        name: 'Indonesian Rupiah'
-    },
-    {
-        countryCode: 'IL',
-        currencyCode: 'ILS',
-        name: 'Israeli New Sheqel'
-    },
-    {
         countryCode: 'IN',
         currencyCode: 'INR',
         name: 'Indian Rupee'
@@ -145,29 +100,9 @@ const countries: CountryCurrency[] = [
         name: 'Japanese Yen'
     },
     {
-        countryCode: 'KE',
-        currencyCode: 'KES',
-        name: 'Kenyan Shilling'
-    },
-    {
-        countryCode: 'KW',
-        currencyCode: 'KWD',
-        name: 'Kuwaiti Dinar'
-    },
-    {
         countryCode: 'MX',
         currencyCode: 'MXN',
         name: 'Mexican Peso'
-    },
-    {
-        countryCode: 'MY',
-        currencyCode: 'MYR',
-        name: 'Malaysian Ringgit'
-    },
-    {
-        countryCode: 'NO',
-        currencyCode: 'NOK',
-        name: 'Norwegian Krone'
     },
     {
         countryCode: 'NZ',
@@ -175,70 +110,26 @@ const countries: CountryCurrency[] = [
         name: 'New Zealand Dollar'
     },
     {
-        countryCode: 'JP',
-        currencyCode: 'OMR',
-        name: 'Omani Rial'
-    },
-    {
-        countryCode: 'PH',
-        currencyCode: 'PHP',
-        name: 'Philippine Peso'
-    },
-    {
         countryCode: 'PL',
         currencyCode: 'PLN',
         name: 'Polish Zloty'
-    },
-    {
-        countryCode: 'QA',
-        currencyCode: 'QAR',
-        name: 'Qatari Rial'
-    },
-    {
-        countryCode: 'RO',
-        currencyCode: 'RON',
-        name: 'Romanian New Leu'
     },
     {
         countryCode: 'SA',
         currencyCode: 'SAR',
         name: 'Saudi Riyal'
     },
-    {
-        countryCode: 'SE',
-        currencyCode: 'SEK',
-        name: 'Swedish Krona'
-    },
-    {
-        countryCode: 'SG',
-        currencyCode: 'SGD',
-        name: 'Singapore Dollar'
-    },
+
     {
         countryCode: 'TH',
         currencyCode: 'THB',
         name: 'Thai Baht'
     },
     {
-        countryCode: 'TR',
-        currencyCode: 'TRY',
-        name: 'Turkish Lira'
-    },
-    {
-        countryCode: 'UG',
-        currencyCode: 'UGX',
-        name: 'Ugandan Shilling'
-    },
-    {
         countryCode: 'US',
         currencyCode: 'USD',
         name: 'United States Dollar'
     },
-    {
-        countryCode: 'ZA',
-        currencyCode: 'ZAR',
-        name: 'South African Rand'
-    }
 ];
 
 export default CurrencySelector;
