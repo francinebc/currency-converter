@@ -1,14 +1,15 @@
 import React from 'react';
 import {Autocomplete, Box, TextField} from '@mui/material';
+import {AutocompleteChangeReason, AutocompleteValue} from '@mui/base/AutocompleteUnstyled/useAutocomplete';
 
-const CurrencySelector: React.FC = () => {
+const CurrencySelector: React.FC<Props> = (props) => {
     return (
         <div>
             <Autocomplete
-                sx={{width: 300}}
+                sx={{width: 400}}
                 options={countries}
                 autoHighlight
-                getOptionLabel={(option: CountryCurrency) => option.name}
+                getOptionLabel={(option: CountryCurrency) => `${option.name} (${option.currencyCode})`}
                 renderOption={(props: any, option: CountryCurrency) => (
                     <Box component="li" sx={{'& > img': {mr: 2, flexShrink: 0}}} {...props}>
                         <img
@@ -21,20 +22,32 @@ const CurrencySelector: React.FC = () => {
                         {option.name} ({option.currencyCode})
                     </Box>
                 )}
-                renderInput={(params:any) => (
+                renderInput={(params: any) => (
                     <TextField
                         {...params}
-                        label="Choose a currency"
+                        label={props.label}
                         inputProps={{
                             ...params.inputProps,
                             autoComplete: 'new-password', // disable autocomplete and autofill
                         }}
                     />
                 )}
+                onChange={(event: React.SyntheticEvent, value: AutocompleteValue<CountryCurrency, false, false, false>, reason: AutocompleteChangeReason) => {
+                    if (reason === 'selectOption') {
+                        props.handleChange(value?.currencyCode);
+                    }
+                }
+                }
             />
         </div>
     );
 };
+
+type Props = {
+    label: string
+    handleChange: (currencyCode: string | null | undefined) => void
+}
+
 type CountryCurrency = {
     countryCode: string,
     currencyCode: string,
