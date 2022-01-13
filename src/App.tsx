@@ -6,6 +6,7 @@ import ConverterFrame from './components/ConverterFrame';
 const App: React.FC = () => {
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
+    const internalBoxPadding = isSmall ? theme.spacing(2) : theme.spacing(6);
 
     return (
         <Box sx={{
@@ -15,8 +16,8 @@ const App: React.FC = () => {
             height: '100vh'
         }}>
             <Box sx={{
-                padding: `${isSmall ? theme.spacing(2) : theme.spacing(6)}`,
-                width: 'min(450px, 100%)'
+                padding: `${internalBoxPadding}`,
+                width: `min(450px, calc(100% - calc(${internalBoxPadding} * 2)))`
             }}>
                 <ConverterFrame/>
             </Box>

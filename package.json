@@ -42,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/superagent": "^4.1.14",
+    "superagent": "^7.0.2"
   }
 }

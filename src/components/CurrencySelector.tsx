@@ -6,7 +6,6 @@ const CurrencySelector: React.FC<Props> = (props) => {
     return (
         <div>
             <Autocomplete
-                sx={{width: 400}}
                 options={countries}
                 autoHighlight
                 getOptionLabel={(option: CountryCurrency) => `${option.name} (${option.currencyCode})`}
