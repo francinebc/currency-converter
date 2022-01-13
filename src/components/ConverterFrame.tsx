@@ -2,13 +2,13 @@ import React, {ChangeEvent, useEffect, useState} from 'react';
 import TextField from '@mui/material/TextField';
 import CurrencySelector from './CurrencySelector';
 import {CircularProgress, Paper, Typography, useTheme} from '@mui/material';
-import {fetchRate, RateResponse} from '../api/rate';
+import {fetchAndProcessRate, Rate} from '../util/rateHandler';
 
 const ConverterFrame: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [fromAmount, setFromAmount] = useState(0);
     const [blurredFromAmount, setBlurredFromAmount] = useState(0);
-    const [rateResponse, setRateResponse] = useState<RateResponse | null>(null);
+    const [rateResponse, setRateResponse] = useState<Rate | null>(null);
     const [fromCurrency, setFromCurrency] = useState<string | null | undefined>('');
     const [toCurrency, setToCurrency] = useState<string | null | undefined>('');
     const [error, setError] = useState<string | null>('');
@@ -16,15 +16,10 @@ const ConverterFrame: React.FC = () => {
     useEffect(() => {
         if (blurredFromAmount && fromCurrency && toCurrency) {
             setIsLoading(true);
-            fetchRate({Sell: fromCurrency, Buy: toCurrency, Amount: blurredFromAmount, Fixed: 'sell'})
+            fetchAndProcessRate({Sell: fromCurrency, Buy: toCurrency, Amount: blurredFromAmount, Fixed: 'sell'})
                 .then(response => {
-                    if (response && response.midMarketRate) {
-                        setError(null);
-                        setRateResponse(response);
-                    } else {
-                        setError('Oops! Something went wrong');
-                        setRateResponse(null);
-                    }
+                    setError(null);
+                    setRateResponse(response);
                     setIsLoading(false);
                 })
                 .catch(error => {
@@ -46,16 +41,29 @@ const ConverterFrame: React.FC = () => {
             return <Typography variant="body1">{error}</Typography>
         }
 
-        if (rateResponse && rateResponse.midMarketRate) {
+        if (rateResponse) {
             return (<>
                 <Typography variant="h6">
-                    {rateResponse.clientBuyAmount} {toCurrency}
+                    {Number(rateResponse.adjustedBuyAmount).toFixed(2)} {toCurrency}
                 </Typography>
                 <Typography sx={{
                     color: 'gray',
                     fontStyle: 'italic'
                 }}>
-                    mid market rate of {rateResponse.midMarketRate}
+                    mid market rate of {Number(rateResponse.baseRate).toFixed(2)}
+                </Typography>
+                <Typography sx={{
+                    color: 'gray',
+                    fontStyle: 'italic'
+                }}>
+                    adjusted rate of {Number(rateResponse.adjustedRate).toFixed(2)}
+                </Typography>
+                <Typography sx={{
+                    color: 'gray',
+                    fontStyle: 'italic'
+                }}>
+                    our
+                    cut: {Number(rateResponse.originalBuyAmount - rateResponse.adjustedBuyAmount).toFixed(2)} {toCurrency}
                 </Typography>
             </>);
         }
