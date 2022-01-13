@@ -17,6 +17,6 @@ export type RateRequest = {
 }
 
 export type RateResponse = {
-    midMarketRate: number,
+    midMarketRate?: number,
     clientBuyAmount: number
 }

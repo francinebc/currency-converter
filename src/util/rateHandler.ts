@@ -5,7 +5,7 @@ const markup = 0.005; // markup as decimal
 export function fetchAndProcessRate(rateRequest: RateRequest): Promise<Rate> {
     return fetchRate(rateRequest)
         .then(response => {
-            if (response && response.midMarketRate) {
+            if (response && response.midMarketRate !== null && response.midMarketRate !== undefined) {
                 return {
                     baseRate: response.midMarketRate,
                     adjustedRate: response.midMarketRate * (1 - markup),
