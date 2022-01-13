@@ -42,7 +42,7 @@ const ConverterFrame: React.FC = () => {
 
             {rateResponse ?
                 <Typography variant="body1" gutterBottom>
-                    ${rateResponse.amount} at {rateResponse.rate}
+                    ${fromAmount * rateResponse.midMarketRate} at %{rateResponse.midMarketRate * 100}
                 </Typography>
                 : <></>
             }

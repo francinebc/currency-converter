@@ -6,9 +6,7 @@ export function fetchRate(rateRequest: RateRequest):Promise<RateResponse> {
     return request
         .get(url)
         .query(rateRequest)
-        .then(res => {
-            return res.body();
-        });
+        .then(res => res.body);
 }
 
 export type RateRequest = {
@@ -19,6 +17,5 @@ export type RateRequest = {
 }
 
 export type RateResponse = {
-    amount: number,
-    rate: number
+    midMarketRate: number,
 }
