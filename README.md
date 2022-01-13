@@ -1,4 +1,4 @@
-#Currency Converter
+# Currency Converter
 Converts currency
 
 Built using create-react-app with typescript
