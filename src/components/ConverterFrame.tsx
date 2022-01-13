@@ -12,7 +12,7 @@ const ConverterFrame: React.FC = () => {
 
     /*
         We wait for the user to blur the amount input, otherwise we could be doing an api fetch every keystroke.
-        This could possibly be handled better by rate limiting the api e.g.
+        This could be handled better by rate limiting the api e.g.
      */
     const [blurredFromAmount, setBlurredFromAmount] = useState(0);
 
